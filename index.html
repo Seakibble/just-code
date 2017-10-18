@@ -10,7 +10,7 @@
         <script src="prism/prism.js"></script>
     </head>
 
-    <body>
+    <body onscroll="tocUpdate()">
         <style>
             body {
                 font-size: 16px;
@@ -91,14 +91,18 @@
             }
             
             #toc {
-                position: fixed;
                 width: 295px;
+            }
+
+            #toc.sticky {
+                position: fixed;
+                top: 0;
             }
 
             .toc_title {
                 font-size: 1.3em;
                 display: block;
-                margin: 1em 0 0.5em 1em;
+                padding: 1em 0 0.5em 1em;
             }
 
             .toc_heading {
@@ -108,15 +112,27 @@
                 box-sizing: border-box;
             }
 
-            #toc a {
-                color: #555;
-                text-decoration: none;
+            .toc_heading.active {
+                background: rgb(201, 8, 8);
+                color: white;
+            }
+
+            .toc_heading.active:hover {
+                background: rgb(158, 9, 9);
+                color: white;
             }
 
             .toc_heading:hover {
                 color: rgb(201, 8, 8);
                 background: #e6e6e6;
             }
+
+            #toc a {
+                color: #555;
+                text-decoration: none;
+            }
+
+
 
 
         </style>
@@ -203,7 +219,13 @@
 
         </div>
         <script>
-            buildToc();
+            // Get the toc
+            var toc = document.getElementById("toc");
+            
+            // Get the offset position of the toc
+            var sticky = toc.offsetTop;
+            var offsetList = buildToc();
+            tocUpdate();
         </script>
     </body>
 </html>
