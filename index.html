@@ -1,0 +1,209 @@
+<html>
+    <head>
+        <link href="reset.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="scripts/script.js"></script>
+
+        <link href="prism/prism.css" rel="stylesheet">
+        <script src="prism/prism.js"></script>
+    </head>
+
+    <body>
+        <style>
+            body {
+                font-size: 16px;
+                font-family: 'Roboto', sans-serif;
+                background: #f9f9f9;
+                color: #444;
+                line-height: 1.7em;
+                
+            }
+
+            h1 {
+                color: #fff;
+                font-size: 2.5em;
+                padding: 1em 1em 1em 2em;
+                background: rgb(201, 8, 8);
+                z-index: 2;
+                letter-spacing: 2px;
+                word-spacing: 0.1em;
+            }
+
+            h2 {
+                padding: 1em 0 0.5em;
+                margin: 0 0 0.5em;
+                font-size: 2em;
+                border-bottom: 1px solid #ddd;
+            }    
+
+            h3,
+            h4,
+            h5 {
+                padding: 1em 0 0.25em;
+            }
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            .container {
+                display: grid;
+                grid-template-columns: 300px auto;
+                width: 100%;
+                grid-auto-flow: row;
+            }
+
+            .column {
+                background: #f9f9f9;
+                height: 100%;
+                box-sizing: border-box;
+            }
+
+            .content {
+                padding: 2em 3em;
+                
+            }
+
+            p {
+                padding: 0.5em 0;
+            }
+
+            ul {
+                margin-bottom: 1em;
+            }
+
+            li {
+                list-style-type: circle;
+                margin-left: 2em;
+            }
+
+            section {
+                margin: 0 0 2em;
+            }
+
+            .toc-box {
+                background: #eeeeee;
+                border-right: 5px solid rgb(201, 8, 8);
+                box-shadow: 0 5px 5px #666;
+                z-index: 1;
+            }
+            
+            #toc {
+                position: fixed;
+                width: 295px;
+            }
+
+            .toc_title {
+                font-size: 1.3em;
+                display: block;
+                margin: 1em 0 0.5em 1em;
+            }
+
+            .toc_heading {
+                font-size: 1.1em;
+                display: block;
+                padding: 0.25em 2em;
+                box-sizing: border-box;
+            }
+
+            #toc a {
+                color: #555;
+                text-decoration: none;
+            }
+
+            .toc_heading:hover {
+                color: rgb(201, 8, 8);
+                background: #e6e6e6;
+            }
+
+
+        </style>
+
+        <h1>The C/C++ Cheat Sheet (Yes, I know it's JavaScript...)</h1>
+        <div class="container">
+
+            <div class="column toc-box">
+                <div id="toc">
+                    <span class="toc_title">CONTENTS</h3></span>
+                </div>
+            </div>
+
+            <div class="column content">
+                <section>
+                    <h2>Introduction</h2>
+                    <p>JavaScript is a lightweight, interpreted programming language. It is designed for creating network-centric applications. It is complimentary to and integrated with Java. JavaScript is very easy to implement because it is integrated with HTML. It is open and cross-platform.</p>
+                    <p>This tutorial has been prepared for JavaScript beginners to help them understand the basic functionality of JavaScript to build dynamic web pages and web applications.</p>
+                    <p>For this tutorial, it is assumed that the reader have a prior knowledge of HTML coding. It would help if the reader had some prior exposure to object-oriented programming concepts and a general idea on creating online applications.</p>
+                </section>
+
+                <section>
+                    <h2>Variables</h2>
+                    <p>One of the most fundamental characteristics of a programming language is the set of data types it supports. These are the type of values that can be represented and manipulated in a programming language.</p>
+                    <p>JavaScript allows you to work with three primitive data types:</p>
+                    <ul>
+                        <li>Numbers, eg. 123, 120.50 etc.</li>
+                        <li>Strings of text e.g. "This text string" etc.</li>
+                        <li>Boolean e.g. true or false.</li>
+                    </ul>
+                    <p>JavaScript also defines two trivial data types, null and undefined, each of which defines only a single value. In addition to these primitive data types, JavaScript supports a composite data type known as object. We will cover objects in detail in a separate chapter.</p>
+                    <pre><code class="language-cpp">
+                        int someInteger = 999;
+                        bool someBoolean = true;
+                        char someCharacter = "M";
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Conditional Statements</h2>
+                    <p>Very often when you write code, you want to perform different actions for different decisions. You can use conditional statements in your code to do this. In JavaScript we have the following conditional statements:</p>
+                    <ul>
+                        <li>Use if to specify a block of code to be executed, if a specified condition is true</li>
+                        <li>Use else to specify a block of code to be executed, if the same condition is false</li>
+                        <li>Use else if to specify a new condition to test, if the first condition is false</li>
+                        <li>Use switch to specify many alternative blocks of code to be executed</li>
+                    </ul>
+
+                    <h3>if...else</h3>
+                    <p>While writing a program, there may be a situation when you need to adopt one out of a given set of paths. In such cases, you need to use conditional statements that allow your program to make correct decisions and perform right actions.</p>
+                    <p>JavaScript supports conditional statements which are used to perform different actions based on different conditions. Here we will explain the if..else statement.</p>
+                    <pre><code class="language-cpp">
+                        if (x != true) {
+                            printf_s("This statement is false.");
+                        } else {
+                            printf_s("This statement is true.");
+                        }
+                    </code></pre>
+
+                    <h3>Switch</h3>
+                    <p>You can use multiple if...else statements, as in the previous chapter, to perform a multiway branch. However, this is not always the best solution, especially when all of the branches depend on the value of a single variable.</p>
+                    <p>Starting with JavaScript 1.2, you can use a switch statement which handles exactly this situation, and it does so more efficiently than repeated if...else if statements.</p>
+                    <pre><code class="language-cpp">
+                        switch (dogs) {
+                        case 0:
+                            printf_s("There are no dogs...");
+                            break;
+
+                        case 1:
+                            printf_s("There is one dog.");
+                            break;
+
+                        default:
+                            printf_s("There are %d dogs!", dogs);
+                            break;
+                        }
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Loops</h2>
+                </section>
+            </div>
+
+        </div>
+        <script>
+            buildToc();
+        </script>
+    </body>
+</html>
