@@ -14,8 +14,11 @@ function buildToc () {
         var toc = $("#toc");
         var heading = $(this);
 
+        var text = heading.text();
+        heading.text('');
         //Create id from heading text
-        var id = heading.text().toLowerCase().replace(/ /g,'_');
+        var id = text.toLowerCase().replace(/ /g,'_');
+        
 
         // Give each heading an id so it can be linked
         heading.attr('id', id);
@@ -26,17 +29,21 @@ function buildToc () {
         if (elementType == "H2") {
             section++;
             subSection = 0;
-            heading.prepend(section + ". ");
+            text = section + ". " + text;
         } else {
             subSection++;
-            heading.prepend(section + "." + subSection + " ");
+            text = section + "." + subSection + " " + text;
         }
 
+        heading.prepend('<a href="#'+id+'"></a>');
+        anchor = heading.find('a');
+        anchor.text(text);
+
         // Add heading to the toc
-        toc.append('<a href="#'+id+'"><span class="toc_heading toc_'+elementType+'">'+heading.text()+'</span></a>');
+        toc.append('<a href="#'+id+'"><span class="toc_heading toc_'+elementType+'">'+text+'</span></a>');
 
         //Add heading Y offset to the list so it can be highlighted correctly later
-        list.push(heading.offset().top);
+        list.push(heading.offset().top - 20);
     });    
     
     return list;
@@ -57,7 +64,7 @@ function tocUpdate() {
     var foundActive = false;
     if (offsetList != undefined) {
         for (var i = 0; i < offsetList.length; i++) {
-            var headingY = offsetList[i]-10;
+            var headingY = offsetList[i];
             var windowY = window.pageYOffset;
 
             if (headingY >= windowY && !foundActive) {

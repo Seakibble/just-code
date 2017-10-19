@@ -36,9 +36,26 @@ h5 {
     padding: 1em 0 0.25em;
 }
 
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover {
+    color: rgb(201, 8, 8);
+}
+
 .container {
     display: grid;
-    grid-template-columns: 300px auto;
+    grid-template-columns: 260px auto;
     width: 100%;
     grid-auto-flow: row;
 }
