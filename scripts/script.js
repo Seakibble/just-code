@@ -47,24 +47,24 @@ function buildToc () {
 
 function tocUpdate() {
     // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-    if (window.pageYOffset >= sticky) {
-        toc.classList.add("sticky")
-    } else {
-        toc.classList.remove("sticky");
-    }
+    // if (window.pageYOffset >= sticky) {
+    //     toc.classList.add("sticky")
+    // } else {
+    //     toc.classList.remove("sticky");
+    // }
 
     // Highlight active section
     var foundActive = false;
     if (offsetList != undefined) {
         for (var i = 0; i < offsetList.length; i++) {
-            var headingY = offsetList[i];
+            var headingY = offsetList[i]-10;
             var windowY = window.pageYOffset;
 
             if (headingY >= windowY && !foundActive) {
-                $('#toc a:nth-child('+(i+1)+') span').addClass("active");
+                $('#toc a:nth-child('+(i)+') span').addClass("active");
                 foundActive = true;
             } else {
-                $('#toc a:nth-child('+(i+1)+') span').removeClass("active");
+                $('#toc a:nth-child('+(i)+') span').removeClass("active");
             }
         }
     }
