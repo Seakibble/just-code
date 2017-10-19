@@ -1,3 +1,8 @@
+window.onload = function () {
+    // Swish fade-in
+    document.getElementsByTagName("BODY")[0].style.opacity = 1.0;
+}
+
 function buildToc () {
     var headings = $('h2, h3');
     var list = [];
@@ -39,18 +44,23 @@ function buildToc () {
 
 
 
-// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+
 function tocUpdate() {
+    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
     if (window.pageYOffset >= sticky) {
         toc.classList.add("sticky")
     } else {
         toc.classList.remove("sticky");
     }
 
+    // Highlight active section
     var foundActive = false;
     if (offsetList != undefined) {
         for (var i = 0; i < offsetList.length; i++) {
-            if (offsetList[i]-10 >= window.pageYOffset && !foundActive) {
+            var headingY = offsetList[i];
+            var windowY = window.pageYOffset;
+
+            if (headingY >= windowY && !foundActive) {
                 $('#toc a:nth-child('+(i+1)+') span').addClass("active");
                 foundActive = true;
             } else {
