@@ -1,16 +1,38 @@
 function buildToc () {
-    var h2s = $('h2');
+    var headings = $('h2, h3');
     var list = [];
-    h2s.each(function (i) {
-        toc = $("#toc");
-        heading = $(this);
-        var id = heading.text().toLowerCase().replace(/ /g,'');
-        heading.prepend((i+1) + ". ");
-        heading.attr('id', id);
-        toc.append('<a href="#'+id+'"><span class="toc_heading">'+heading.text()+'</span></a>');
-        list.push(heading.offset().top);
-    });
+
+    var section = 0;
+    var subSection = 1;
     
+    headings.each(function (i) {
+        var toc = $("#toc");
+        var heading = $(this);
+
+        //Create id from heading text
+        var id = heading.text().toLowerCase().replace(/ /g,'_');
+
+        // Give each heading an id so it can be linked
+        heading.attr('id', id);
+
+        var elementType = heading.prop('nodeName');
+
+        // Number sections
+        if (elementType == "H2") {
+            section++;
+            subSection = 0;
+            heading.prepend(section + ". ");
+        } else {
+            subSection++;
+            heading.prepend(section + "." + subSection + " ");
+        }
+
+        // Add heading to the toc
+        toc.append('<a href="#'+id+'"><span class="toc_heading toc_'+elementType+'">'+heading.text()+'</span></a>');
+
+        //Add heading Y offset to the list so it can be highlighted correctly later
+        list.push(heading.offset().top);
+    });    
     
     return list;
 }
@@ -20,9 +42,9 @@ function buildToc () {
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function tocUpdate() {
     if (window.pageYOffset >= sticky) {
-        toc[0].classList.add("sticky")
+        toc.classList.add("sticky")
     } else {
-        toc[0].classList.remove("sticky");
+        toc.classList.remove("sticky");
     }
 
     var foundActive = false;
