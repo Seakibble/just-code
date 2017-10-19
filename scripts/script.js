@@ -1,55 +1,57 @@
 window.onload = function () {
     // Swish fade-in
     document.getElementsByTagName("BODY")[0].style.opacity = 1.0;
-}
+};
 
-function buildToc () {
+function buildToc() {
     var headings = $('h2, h3');
     var list = [];
 
     var section = 0;
     var subSection = 1;
-    
-    headings.each(function (i) {
+
+    headings.each(function () {
         var toc = $("#toc");
         var heading = $(this);
 
         var text = heading.text();
         heading.text('');
         //Create id from heading text
-        var id = text.toLowerCase().replace(/ /g,'_');
-        
+        var id = text.toLowerCase().replace(/ /g, '_');
+
 
         // Give each heading an id so it can be linked
         heading.attr('id', id);
 
         var elementType = heading.prop('nodeName');
 
-        // Number sections
-        if (elementType == "H2") {
-            section++;
-            subSection = 0;
-            text = section + ". " + text;
-        } else {
-            subSection++;
-            text = section + "." + subSection + " " + text;
+        // Number sections and subsections. Leave all other headings unaltered
+        switch (elementType) {
+            case "H2":
+                section++;
+                subSection = 0;
+                text = section + ". " + text;
+                break;
+
+            case "H3":
+                subSection++;
+                text = section + "." + subSection + " " + text;
+                break;
         }
 
-        heading.prepend('<a href="#'+id+'"></a>');
-        anchor = heading.find('a');
+        heading.prepend('<a href="#' + id + '"></a>');
+        var anchor = heading.find('a');
         anchor.text(text);
 
         // Add heading to the toc
-        toc.append('<a href="#'+id+'"><span class="toc_heading toc_'+elementType+'">'+text+'</span></a>');
+        toc.append('<a href="#' + id + '"><span class="toc_heading toc_' + elementType + '">' + text + '</span></a>');
 
         //Add heading Y offset to the list so it can be highlighted correctly later
-        list.push(heading.offset().top - 20);
-    });    
-    
+        list.push(heading);
+    });
+
     return list;
 }
-
-
 
 
 function tocUpdate() {
@@ -62,16 +64,17 @@ function tocUpdate() {
 
     // Highlight active section
     var foundActive = false;
-    if (offsetList != undefined) {
+    if (offsetList !== undefined) {
         for (var i = 0; i < offsetList.length; i++) {
-            var headingY = offsetList[i];
+            var headingY = offsetList[i].offset().top - 20;
             var windowY = window.pageYOffset;
 
+            var item = $('#toc').find('a:nth-child(' + (i) + ') span');
             if (headingY >= windowY && !foundActive) {
-                $('#toc a:nth-child('+(i)+') span').addClass("active");
+                item.addClass("active");
                 foundActive = true;
             } else {
-                $('#toc a:nth-child('+(i)+') span').removeClass("active");
+                item.removeClass("active");
             }
         }
     }
