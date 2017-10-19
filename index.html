@@ -10,16 +10,26 @@
 
         <link href="prism/prism.css" rel="stylesheet">
         <script src="prism/prism.js"></script>
+        <noscript>
+            <style>
+                body {
+                    opacity: 1;
+                }
+            </style>
+        </noscript>
     </head>
 
     <body onscroll="tocUpdate()">
-        <h1>The C/C++ Cheat Sheet (Yes, I know it's JavaScript...)</h1>
+        
 
         <div class="container">
 
-            <div class="column toc-box">
-                <div id="toc">
-                    <span class="toc_title">CONTENTS</h3></span>
+            <div class="column">
+                <div class="toc-box">
+                    <h1>JUST CODE</h1>
+                    <div id="toc">
+                        <!-- <span class="toc_title">CONTENTS</h3></span> -->
+                    </div>
                 </div>
             </div>
 
@@ -72,7 +82,7 @@
                     <h3>Switch</h3>
                     <p>You can use multiple if...else statements, as in the previous chapter, to perform a multiway branch. However, this is not always the best solution, especially when all of the branches depend on the value of a single variable.</p>
                     <p>Starting with JavaScript 1.2, you can use a switch statement which handles exactly this situation, and it does so more efficiently than repeated if...else if statements.</p>
-                    <pre><code class="language-cpp">
+                    <pre><code class="language-cpp line-numbers">
                         switch (dogs) {
                         case 0:
                             printf_s("There are no dogs...");
@@ -91,6 +101,32 @@
 
                 <section>
                     <h2>Loops</h2>
+                    <p>You can think of a loop as a computerized version of the game where you tell someone to take X steps in one direction then Y steps in another; for example, the idea "Go five steps to the east" could be expressed this way as a loop:</p>
+                    <p>There are many different kinds of loops, but they all essentially do the same thing: they repeat an action some number of times (and it's actually possible that number could be zero). The various loop mechanisms offer different ways to determine the start and end points of the loop. There are various situations that are more easily served by one type of loop over the others.</p>
+
+                    <h3>For Loop</h3>
+                    <p>A for loop repeats until a specified condition evaluates to false. The JavaScript for loop is similar to the Java and C for loop. A for statement looks as follows:</p>
+                    <pre><code class="language-cpp">
+                        for (int i = 0; i &lt; 10; i++ ) {
+                            // Do this ten times please
+                        }
+                    </code></pre>
+                    <p>When a for loop executes, the following occurs:</p>
+                    <ol>
+                        <li>The initializing expression initialExpression, if any, is executed. This expression usually initializes one or more loop counters, but the syntax allows an expression of any degree of complexity. This expression can also declare variables.</li>
+                        <li>The condition expression is evaluated. If the value of condition is true, the loop statements execute. If the value of condition is false, the for loop terminates. If the condition expression is omitted entirely, the condition is assumed to be true.</li>
+                        <li>The statement executes. To execute multiple statements, use a block statement ({ ... }) to group those statements.</li>
+                        <li>If present, the update expression incrementExpression is executed.</li>
+                        <li>Control returns to step 2.</li>
+                    </ol>
+                    <h3>While Loop</h3>
+                    <p>A while statement executes its statements as long as a specified condition evaluates to true.</p>
+                    <pre><code class="language-cpp">
+                        while (x == false) {
+                            // Do this until x is true
+                        }
+                    </code></pre>
+                    <p>If the condition becomes false, statement within the loop stops executing and control passes to the statement following the loop. The condition test occurs before statement in the loop is executed. If the condition returns true, statement is executed and the condition is tested again. If the condition returns false, execution stops and control is passed to the statement following while. To execute multiple statements, use a block statement ({ ... }) to group those statements.</p>
                 </section>
             </div>
 
@@ -102,6 +138,7 @@
             // Get the offset position of the toc
             var sticky = toc.offsetTop;
             var offsetList = buildToc();
+            window.onresize = tocUpdate();
             tocUpdate();
         </script>
     </body>

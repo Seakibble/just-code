@@ -1,20 +1,22 @@
 body {
+    opacity: 0;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     background: #f9f9f9;
     color: #444;
     line-height: 1.7em;
-    
+    transition: all 0.5s;    
 }
 
 h1 {
     color: #fff;
-    font-size: 2em;
-    padding: 1em 1em 1em 2em;
+    font-size: 1.8em;
+    padding: 0.5em;
+    text-align: center;
     background: rgb(201, 8, 8);
     z-index: 2;
-    letter-spacing: 2px;
-    word-spacing: 0.1em;
+    letter-spacing: 0.3em;
+    word-spacing: 0.2em;
 }
 
 h2 {
@@ -34,9 +36,26 @@ h5 {
     padding: 1em 0 0.25em;
 }
 
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover {
+    color: rgb(201, 8, 8);
+}
+
 .container {
     display: grid;
-    grid-template-columns: 300px auto;
+    grid-template-columns: 260px auto;
     width: 100%;
     grid-auto-flow: row;
 }
@@ -56,13 +75,21 @@ p {
     padding: 0.5em 0;
 }
 
-ul {
+ul,
+ol {
     margin-bottom: 1em;
 }
 
 li {
-    list-style-type: circle;
     margin-left: 2em;
+}
+
+ul > li {
+    list-style-type: circle;
+}
+
+ol > li {
+    list-style-type: decimal;
 }
 
 section {
@@ -70,7 +97,15 @@ section {
 }
 
 
+/* Prism style overrides */
+body .line-numbers .line-numbers-rows {
+    border-color: #444;
+}
 
-pre[class*="language-"] {
+body .line-numbers-rows > span:before {
+    color: #666;
+}
+
+body pre[class*="language-"] {
     border-radius: 0.1em;
 }

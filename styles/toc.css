@@ -1,12 +1,14 @@
 .toc-box {
     background: #eeeeee;
     border-right: 5px solid rgb(201, 8, 8);
-    box-shadow: 0 5px 5px #666;
+    box-shadow: 0 0 5px #666;
     z-index: 1;
+    position: fixed;
+    height: 100%;
 }
 
 #toc {
-    width: 295px;
+    padding-top: 1em;
 }
 
 #toc.sticky {
@@ -23,7 +25,7 @@
 .toc_heading {
     font-size: 1.1em;
     display: block;
-    padding: 0.25em 2em;
+    padding: 0.25em 1em;
     box-sizing: border-box;
     -webkit-transition: all 0.15s ease;
     -moz-transition: all 0.15s ease;
@@ -47,7 +49,7 @@
 
 .toc_heading:hover {
     color: rgb(201, 8, 8);
-    background: #e6e6e6;
+    background: #e7e7e7;
 }
 
 #toc a {
