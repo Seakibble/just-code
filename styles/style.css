@@ -5,7 +5,7 @@ body {
     background: #f9f9f9;
     color: #444;
     line-height: 1.7em;
-    transition: all 0.5s;    
+    transition: all 0.5s;
 }
 
 h1 {
@@ -28,6 +28,11 @@ h2 {
 
 h3 {
     font-size: 1.4em;
+}
+
+h4 {
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 h3,
@@ -68,7 +73,7 @@ h5 a:hover {
 
 .content {
     padding: 2em 3em;
-    
+
 }
 
 p {

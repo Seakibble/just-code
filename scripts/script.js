@@ -3,8 +3,18 @@ window.onload = function () {
     document.getElementsByTagName("BODY")[0].style.opacity = 1.0;
 };
 
-function buildToc() {
-    var headings = $('h2, h3');
+function buildToc(levels) {
+    levels = levels || 3;
+
+    var selector = 'h2';
+    switch (levels) {
+        case 3:
+            selector += ', h4';
+        case 2:
+            selector += ', h3';
+    }
+
+    var headings = $(selector);
     var list = [];
 
     var section = 0;
@@ -64,9 +74,9 @@ function tocUpdate() {
 
     // Highlight active section
     var foundActive = false;
-    if (offsetList !== undefined) {
-        for (var i = 0; i < offsetList.length; i++) {
-            var headingY = offsetList[i].offset().top - 20;
+    if (headingList !== undefined) {
+        for (var i = 0; i < headingList.length; i++) {
+            var headingY = headingList[i].offset().top - 20;
             var windowY = window.pageYOffset;
 
             var item = $('#toc').find('a:nth-child(' + (i) + ') span');

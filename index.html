@@ -20,7 +20,6 @@
     </head>
 
     <body onscroll="tocUpdate()">
-        
 
         <div class="container">
 
@@ -38,6 +37,7 @@
                     <h2>Introduction</h2>
                     <p>JavaScript is a lightweight, interpreted programming language. It is designed for creating network-centric applications. It is complimentary to and integrated with Java. JavaScript is very easy to implement because it is integrated with HTML. It is open and cross-platform.</p>
                     <p>This tutorial has been prepared for JavaScript beginners to help them understand the basic functionality of JavaScript to build dynamic web pages and web applications.</p>
+                    <h4>The plan</h4>
                     <p>For this tutorial, it is assumed that the reader have a prior knowledge of HTML coding. It would help if the reader had some prior exposure to object-oriented programming concepts and a general idea on creating online applications.</p>
                 </section>
 
@@ -82,7 +82,7 @@
                     <h3>Switch</h3>
                     <p>You can use multiple if...else statements, as in the previous chapter, to perform a multiway branch. However, this is not always the best solution, especially when all of the branches depend on the value of a single variable.</p>
                     <p>Starting with JavaScript 1.2, you can use a switch statement which handles exactly this situation, and it does so more efficiently than repeated if...else if statements.</p>
-                    <pre><code class="language-cpp line-numbers">
+                    <pre><code class="language-cpp">
                         switch (dogs) {
                         case 0:
                             printf_s("There are no dogs...");
@@ -133,11 +133,11 @@
         </div>
         <script>
             // Get the toc
-            var toc = document.getElementById("toc");
-            
+            // var toc = document.getElementById("toc");
+
             // Get the offset position of the toc
-            var sticky = toc.offsetTop;
-            var offsetList = buildToc();
+            // var sticky = toc.offsetTop;
+            var headingList = buildToc(2);
             window.onresize = tocUpdate();
             tocUpdate();
         </script>
