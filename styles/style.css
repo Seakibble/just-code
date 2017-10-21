@@ -101,6 +101,51 @@ section {
     margin: 0 0 2em;
 }
 
+.code-output {
+    display: grid;
+    grid-template: 1fr auto / 1fr 10px 1fr;
+    grid-template-areas: "alpha . beta" "alpha . beta";
+    justify-content: space-between;	
+    margin: .5em 0;
+}
+
+.code-output .code {
+    grid-area: alpha;
+}
+
+.code-output .output {
+    grid-area: beta;
+}
+
+.pre {
+    background: #272822;
+    border-radius: 0.1em;
+}
+
+.pre > .pre-heading {
+    background: #3c3d2e;
+    letter-spacing: 0.1em;
+    font-family: Consolas;
+    display: block;
+    color: #f8f8f2;
+    border-top-left-radius: 0.1em;
+    border-top-right-radius: 0.1em;
+    padding: 0.15em 0.15em 0.15em 1em;
+}
+
+.pre .pre-heading + pre {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+    .code-output {
+        grid-template-areas: "alpha alpha alpha" "beta beta beta";
+    }
+}
+
+
 
 /* Prism style overrides */
 body .line-numbers .line-numbers-rows {

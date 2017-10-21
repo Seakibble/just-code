@@ -37,7 +37,7 @@
                     <h2>Introduction</h2>
                     <p>JavaScript is a lightweight, interpreted programming language. It is designed for creating network-centric applications. It is complimentary to and integrated with Java. JavaScript is very easy to implement because it is integrated with HTML. It is open and cross-platform.</p>
                     <p>This tutorial has been prepared for JavaScript beginners to help them understand the basic functionality of JavaScript to build dynamic web pages and web applications.</p>
-                    <h4>The plan</h4>
+                    <h3 class="toc-no-section">The plan</h3>
                     <p>For this tutorial, it is assumed that the reader have a prior knowledge of HTML coding. It would help if the reader had some prior exposure to object-oriented programming concepts and a general idea on creating online applications.</p>
                 </section>
 
@@ -82,21 +82,33 @@
                     <h3>Switch</h3>
                     <p>You can use multiple if...else statements, as in the previous chapter, to perform a multiway branch. However, this is not always the best solution, especially when all of the branches depend on the value of a single variable.</p>
                     <p>Starting with JavaScript 1.2, you can use a switch statement which handles exactly this situation, and it does so more efficiently than repeated if...else if statements.</p>
-                    <pre><code class="language-cpp">
-                        switch (dogs) {
-                        case 0:
-                            printf_s("There are no dogs...");
-                            break;
-
-                        case 1:
-                            printf_s("There is one dog.");
-                            break;
-
-                        default:
-                            printf_s("There are %d dogs!", dogs);
-                            break;
-                        }
-                    </code></pre>
+                    <div class="code-output">
+                        <div class="pre code">
+                            <span class="pre-heading">CODE</span>
+                            <pre><code class="language-cpp">
+                                int dogs = 3;
+                                switch (dogs) {
+                                case 0:
+                                    printf_s("There are no dogs...");
+                                    break;
+        
+                                case 1:
+                                    printf_s("There is one dog.");
+                                    break;
+        
+                                default:
+                                    printf_s("There are %d dogs!", dogs);
+                                    break;
+                                }
+                            </code></pre>
+                        </div>
+                        <div class="pre output">
+                            <span class="pre-heading">OUTPUT</span>
+                            <pre><code class="language-xxxx">
+                                There are 4 dogs!
+                            </code></pre>
+                        </div>
+                    </div>
                 </section>
 
                 <section>
@@ -106,11 +118,28 @@
 
                     <h3>For Loop</h3>
                     <p>A for loop repeats until a specified condition evaluates to false. The JavaScript for loop is similar to the Java and C for loop. A for statement looks as follows:</p>
-                    <pre><code class="language-cpp">
-                        for (int i = 0; i &lt; 10; i++ ) {
-                            // Do this ten times please
-                        }
-                    </code></pre>
+
+
+                    <div class="code-output">
+                            <div class="pre code">
+                                <span class="pre-heading">CODE</span>
+                                <pre><code class="language-cpp">
+                                    for (int i = 0; i &lt; 5; i++ ) {
+                                        printf_s("i = %d", i);
+                                    }
+                                </code></pre>
+                            </div>
+                            <div class="pre output">
+                                <span class="pre-heading">OUTPUT</span>
+                                <pre><code class="language-xxxx">
+                                    i = 0
+                                    i = 1
+                                    i = 2
+                                    i = 3
+                                    i = 4
+                                </code></pre>
+                            </div>
+                        </div>
                     <p>When a for loop executes, the following occurs:</p>
                     <ol>
                         <li>The initializing expression initialExpression, if any, is executed. This expression usually initializes one or more loop counters, but the syntax allows an expression of any degree of complexity. This expression can also declare variables.</li>

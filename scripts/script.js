@@ -36,17 +36,19 @@ function buildToc(levels) {
         var elementType = heading.prop('nodeName');
 
         // Number sections and subsections. Leave all other headings unaltered
-        switch (elementType) {
-            case "H2":
-                section++;
-                subSection = 0;
-                text = section + ". " + text;
-                break;
+        if (!heading.hasClass("toc-no-section")) {
+            switch (elementType) {
+                case "H2":
+                    section++;
+                    subSection = 0;
+                    text = section + ". " + text;
+                    break;
 
-            case "H3":
-                subSection++;
-                text = section + "." + subSection + " " + text;
-                break;
+                case "H3":
+                    subSection++;
+                    text = section + "." + subSection + " " + text;
+                    break;
+            }
         }
 
         heading.prepend('<a href="#' + id + '"></a>');
@@ -73,8 +75,8 @@ function tocUpdate() {
     // }
 
     // Highlight active section
-    var foundActive = false;
-    if (headingList !== undefined) {
+    if (typeof headingList != undefined) {
+        var foundActive = false;
         for (var i = 0; i < headingList.length; i++) {
             var headingY = headingList[i].offset().top - 20;
             var windowY = window.pageYOffset;
