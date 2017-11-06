@@ -6,18 +6,9 @@ body {
     color: #444;
     line-height: 1.7em;
     transition: all 0.5s;
+    box-sizing: border-box;
 }
 
-h1 {
-    color: #fff;
-    font-size: 1.8em;
-    padding: 0.5em;
-    text-align: center;
-    background: rgb(201, 8, 8);
-    z-index: 2;
-    letter-spacing: 0.3em;
-    word-spacing: 0.2em;
-}
 
 h2 {
     padding: 1em 0 0.5em;
@@ -48,6 +39,7 @@ h4 a,
 h5 a {
     color: inherit;
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 h1 a:hover,
@@ -60,20 +52,28 @@ h5 a:hover {
 
 .container {
     display: grid;
-    grid-template-columns: 260px auto;
+    grid-template-columns: 300px auto;
+    grid-template-rows: 60px auto;
     width: 100%;
     grid-auto-flow: row;
-}
-
-.column {
-    background: #f9f9f9;
-    height: 100%;
-    box-sizing: border-box;
+    grid-template-areas:
+        ". doc"
+        ". doc";
 }
 
 .content {
-    padding: 2em 3em;
+    padding: 2em 2em;
+    grid-area: doc;
+}
 
+.footer {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    color: white;
+    width: 100%;
+    background-color: rgb(201, 8, 8);
+    text-align: center;
 }
 
 p {
@@ -90,7 +90,7 @@ li {
 }
 
 ul > li {
-    list-style-type: circle;
+    list-style-image: url('../images/bullet.png');
 }
 
 ol > li {
@@ -109,7 +109,7 @@ section {
     margin: .5em 0;
 }
 
-.code-output .code {
+.code-output .code-cpp {
     grid-area: alpha;
 }
 
@@ -125,7 +125,7 @@ section {
 .pre > .pre-heading {
     background: #3c3d2e;
     letter-spacing: 0.1em;
-    font-family: Consolas;
+    font-family: Consolas, monospace;
     display: block;
     color: #f8f8f2;
     border-top-left-radius: 0.1em;

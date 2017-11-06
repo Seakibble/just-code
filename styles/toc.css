@@ -1,14 +1,21 @@
 .toc-box {
-    background: #eeeeee;
     border-right: 5px solid rgb(201, 8, 8);
     box-shadow: 0 0 5px #666;
     z-index: 1;
     position: fixed;
     height: 100%;
+    width: 300px;
+}
+
+.header {
+    background: rgb(201, 8, 8);
 }
 
 #toc {
     padding-top: 1em;
+    background: #eeeeee;
+    height: 100%;
+    width: 100%;
 }
 
 #toc.sticky {
@@ -17,15 +24,23 @@
 }
 
 .toc_title {
-    font-size: 1.3em;
-    display: block;
-    padding: 1em 0 0.5em 1em;
+    color: #fff;
+    font-size: 1.6em;
+    padding: 0.5em;
+    text-align: center;
+    background: rgb(201, 8, 8);
+    z-index: 2;
+    letter-spacing: 0.3em;
+    word-spacing: 0.2em;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
 }
 
 .toc_heading {
     font-size: 1.1em;
     display: block;
-    padding: 0.25em 1em;
+    padding: 0.25em 2em 0.25em 1.75em;
     box-sizing: border-box;
     -webkit-transition: all 0.15s ease;
     -moz-transition: all 0.15s ease;
@@ -34,12 +49,12 @@
 
 .toc_H3 {
     font-size: 1em;
-    padding: 0.25em 2em 0.25em 2.5em;
+    padding: 0.25em 2em 0.25em 3.5em;
 }
 
 .toc_H4 {
     font-size: 0.9em;
-    padding: 0.1em 2em 0.1em 3.5em;
+    padding: 0.1em 2em 0.1em 4.5em;
 }
 
 .toc_heading.active {

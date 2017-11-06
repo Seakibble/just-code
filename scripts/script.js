@@ -81,7 +81,7 @@ function tocUpdate() {
             var headingY = headingList[i].offset().top - 20;
             var windowY = window.pageYOffset;
 
-            var item = $('#toc').find('a:nth-child(' + (i) + ') span');
+            var item = $('#toc').find('a:nth-child(' + i + ') span');
             if (headingY >= windowY && !foundActive) {
                 item.addClass("active");
                 foundActive = true;

@@ -1,5 +1,8 @@
 <html>
     <head>
+        <link rel="shortcut icon" type="image/png" href="images/icon.png"/>
+        <title>Just Code</title>
+
         <link href="styles/reset.css" rel="stylesheet">
         <link href="styles/style.css" rel="stylesheet">
         <link href="styles/toc.css" rel="stylesheet">
@@ -22,14 +25,14 @@
     <body onscroll="tocUpdate()">
 
         <div class="container">
-
-            <div class="column">
-                <div class="toc-box">
-                    <h1>JUST CODE</h1>
-                    <div id="toc">
-                        <!-- <span class="toc_title">CONTENTS</h3></span> -->
-                    </div>
+            <div class="toc-box">
+                <div class="header">
+                    <span class="toc_title">JUST CODE</span>
                 </div>
+                <div id="toc">
+                    <!-- Table of Contents generated here -->
+                </div>
+                <div class="footer">Max Leeming &copy; 2017</div>                
             </div>
 
             <div class="column content">
@@ -83,8 +86,8 @@
                     <p>You can use multiple if...else statements, as in the previous chapter, to perform a multiway branch. However, this is not always the best solution, especially when all of the branches depend on the value of a single variable.</p>
                     <p>Starting with JavaScript 1.2, you can use a switch statement which handles exactly this situation, and it does so more efficiently than repeated if...else if statements.</p>
                     <div class="code-output">
-                        <div class="pre code">
-                            <span class="pre-heading">CODE</span>
+                        <div class="pre code-cpp">
+                            <span class="pre-heading">C++</span>
                             <pre><code class="language-cpp">
                                 int dogs = 3;
                                 switch (dogs) {
@@ -121,8 +124,8 @@
 
 
                     <div class="code-output">
-                            <div class="pre code">
-                                <span class="pre-heading">CODE</span>
+                            <div class="pre code-cpp">
+                                <span class="pre-heading">C++</span>
                                 <pre><code class="language-cpp">
                                     for (int i = 0; i &lt; 5; i++ ) {
                                         printf_s("i = %d", i);
@@ -157,15 +160,29 @@
                     </code></pre>
                     <p>If the condition becomes false, statement within the loop stops executing and control passes to the statement following the loop. The condition test occurs before statement in the loop is executed. If the condition returns true, statement is executed and the condition is tested again. If the condition returns false, execution stops and control is passed to the statement following while. To execute multiple statements, use a block statement ({ ... }) to group those statements.</p>
                 </section>
-            </div>
 
+                <section>
+                    <h2>Functions</h2>
+                    <p>A JavaScript function is a block of code designed to perform a particular task. A JavaScript function is executed when "something" invokes it (calls it).</p>
+                    <pre><code class="language-cpp">
+                        int myFunction(n1, n2) {
+                            return n1 + n2;
+                        }
+                    </code></pre>
+
+                    <h3>Function Syntax</h3>
+                    <p>A JavaScript function is defined with the function keyword, followed by a name, followed by parentheses (). Function names can contain letters, digits, underscores, and dollar signs (same rules as variables). The parentheses may include parameter names separated by commas: (parameter1, parameter2, ...)</p>
+                    <p>The code to be executed, by the function, is placed inside curly brackets: {}<p>
+                    <pre><code class="language-cpp">
+                        int name(parameter1, parameter2, parameter3) {
+                            //code to be executed
+                        }
+                    </code></pre>
+                    <p>Function parameters are the names listed in the function definition. Function arguments are the real values received by the function when it is invoked. Inside the function, the arguments (the parameters) behave as local variables.</p>
+                </section>
+            </div>
         </div>
         <script>
-            // Get the toc
-            // var toc = document.getElementById("toc");
-
-            // Get the offset position of the toc
-            // var sticky = toc.offsetTop;
             var headingList = buildToc(2);
             window.onresize = tocUpdate();
             tocUpdate();
