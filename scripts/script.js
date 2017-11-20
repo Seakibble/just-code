@@ -10,6 +10,8 @@ function buildToc(levels) {
     switch (levels) {
         case 3:
             selector += ', h4';
+            break;
+
         case 2:
             selector += ', h3';
     }
@@ -27,7 +29,7 @@ function buildToc(levels) {
         var text = heading.text();
         heading.text('');
         //Create id from heading text
-        var id = text.toLowerCase().replace(/ /g, '_');
+        var id = text.toLowerCase().replace(/[ |.]+/g, '_');
 
 
         // Give each heading an id so it can be linked
@@ -51,12 +53,12 @@ function buildToc(levels) {
             }
         }
 
-        heading.prepend('<a href="#' + id + '"></a>');
+        heading.prepend('<a href="#' + id + '" rel="relativeanchor"></a>');
         var anchor = heading.find('a');
         anchor.text(text);
 
         // Add heading to the toc
-        toc.append('<a href="#' + id + '"><span class="toc_heading toc_' + elementType + '">' + text + '</span></a>');
+        toc.append('<a href="#' + id + '" rel="relativeanchor"><span class="toc_heading toc_' + elementType + '">' + text + '</span></a>');
 
         //Add heading Y offset to the list so it can be highlighted correctly later
         list.push(heading);
@@ -75,7 +77,7 @@ function tocUpdate() {
     // }
 
     // Highlight active section
-    if (typeof headingList != undefined) {
+    if (typeof headingList !== undefined) {
         var foundActive = false;
         for (var i = 0; i < headingList.length; i++) {
             var headingY = headingList[i].offset().top - 20;
@@ -91,3 +93,12 @@ function tocUpdate() {
         }
     }
 }
+
+$(document).ready(function () {
+    $('a[rel="relativeanchor"]').click(function () {
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+        }, 350);
+        return false;
+    });
+});

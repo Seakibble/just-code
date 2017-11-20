@@ -12,7 +12,7 @@ body {
 h2 {
   padding: 1em 0 0.5em;
   margin: 0 0 0.5em;
-  font-size: 1.75em;
+  font-size: 1.6em;
   border-bottom: 1px solid #ddd;
 }
 
@@ -51,7 +51,7 @@ h5 a:hover {
 
 .container {
   display: grid;
-  grid-template-columns: 300px auto;
+  grid-template-columns: 250px auto;
   grid-template-rows: 60px auto;
   width: 100%;
   grid-auto-flow: row;

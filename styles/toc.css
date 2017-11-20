@@ -4,7 +4,7 @@
   z-index: 1;
   position: fixed;
   height: 100%;
-  width: 300px;
+  width: 250px;
 }
 
 .header {
@@ -12,7 +12,7 @@
 }
 
 #toc {
-  padding-top: 1em;
+  padding-top: 0.5em;
   background: #eeeeee;
   height: 100%;
   width: 100%;
@@ -25,9 +25,8 @@
 
 .toc_title {
   color: #fff;
-  font-size: 1.6em;
-  padding: 0.5em;
-  text-align: center;
+  font-size: 1.2em;
+  padding: 0.4em 1em;
   background: rgb(201, 8, 8);
   z-index: 2;
   letter-spacing: 0.3em;
@@ -38,9 +37,9 @@
 }
 
 .toc_heading {
-  font-size: 1.1em;
+  font-size: 1em;
   display: block;
-  padding: 0.25em 2em 0.25em 1.75em;
+  padding: 0.15em 2em 0.15em 1em;
   box-sizing: border-box;
   -webkit-transition: all 0.15s ease;
   -moz-transition: all 0.15s ease;
@@ -48,13 +47,11 @@
 }
 
 .toc_H3 {
-  font-size: 1em;
-  padding: 0.25em 2em 0.25em 3.5em;
+  padding-left: 2em;
 }
 
 .toc_H4 {
-  font-size: 0.9em;
-  padding: 0.1em 2em 0.1em 4.5em;
+  padding-left: 3em;
 }
 
 .toc_heading.active {
