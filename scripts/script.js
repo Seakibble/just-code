@@ -83,12 +83,16 @@ function tocUpdate() {
             var headingY = headingList[i].offset().top - 20;
             var windowY = window.pageYOffset;
 
-            var item = $('#toc').find('a:nth-child(' + i + ') span');
+            var itemLink = $('#toc').find('a:nth-child(' + i + ')');
+            var itemSpan = $(itemLink).find('span');
             if (headingY >= windowY && !foundActive) {
-                item.addClass("active");
+                if (!itemSpan.hasClass('active') && (itemLink[0] !== undefined) ) {
+                    history.replaceState({}, "", $.attr(itemLink[0], 'href'));
+                }
+                itemSpan.addClass("active");
                 foundActive = true;
             } else {
-                item.removeClass("active");
+                itemSpan.removeClass("active");
             }
         }
     }
@@ -99,6 +103,7 @@ $(document).ready(function () {
         $('html, body').animate({
             scrollTop: $($.attr(this, 'href')).offset().top
         }, 350);
+        history.pushState({}, "", $.attr(this, 'href'));
         return false;
     });
 });

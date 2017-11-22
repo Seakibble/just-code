@@ -63,16 +63,6 @@ h5 a:hover {
   grid-area: doc;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  z-index: 2;
-  color: white;
-  width: 100%;
-  background-color: rgb(201, 8, 8);
-  text-align: center;
-}
-
 p {
   padding: 0.5em 0;
 }
