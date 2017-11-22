@@ -77,7 +77,7 @@ function tocUpdate() {
     // }
 
     // Highlight active section
-    if (typeof headingList !== undefined) {
+    if (headingList) {
         var foundActive = false;
         for (var i = 0; i < headingList.length; i++) {
             var headingY = headingList[i].offset().top - 20;
